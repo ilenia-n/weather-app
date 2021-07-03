@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container box">
+        <div class="row">
+            <div class="col-5">
+                <form id="cityForm">
+                    <div class="input-group mb-3">
+                        <input type="text"  id ="cityInput" class="form-control" placeholder="Enter a city...">
+                        <button type="submit" value="Search">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4">
+                <button id="currentLocation"> Current Location
+                </button>
+            </div>
+            <div class="col-2">
+                <button id="cUnit" class="unit"> °C
+                </button>
+            </div>
+            <div class="col-1">
+                <button id="fUnit" class="unit"> °F
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h2 id="cityTitle">Edinburgh</h2>
+                <ul class="top-details">
+                    <li id="date">Sunday 16th May</li>
+                    <li id="weatherDescription">Mostly cloudy</li>
+                </ul>
+                <img src="images/cloudy.png" alt="Cloudy">
+            </div>
+            <div class="col-6">
+                <h1 id="temp">11°</h1>
+                <ul class="weather-details">
+                    <li>Feels like: <span id="feelsLike">19</span>°</li>
+                    <li>Humidity: <span id="humidity">73</span></li>
+                    <li>Wind: <span id="windSpeed">10</span> mph</li>
+                </ul>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <p>Mon
+                    </p>
+                    <img class="week-image" src="images/sunnyintervals.png" alt="Sunny Intervals">
+                    <p> 11°
+                    </p>
+                    <p class="min">
+                        8°
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <p>Tue
+                    </p>
+                    <img class="week-image" src="images/cloudy.png" alt="Cloudy">
+                    <p> 10°
+                    </p>
+                    <p class="min">
+                        7°
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <p>Wed
+                    </p>
+                    <img class="week-image" src="images/rain.png" alt="Rain">
+                    <p> 11°
+                    </p>
+                    <p class="min">
+                        8°
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <p>Thu
+                    </p>
+                    <img class="week-image" src="images/sun.png" alt="Sunny">
+                    <p> 15°
+                    </p>
+                    <p class="min">
+                        11°
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <p>Fri
+                    </p>
+                    <img class="week-image" src="images/sun.png" alt="Sunny">
+                    <p> 16°
+                    </p>
+                    <p class="min">
+                        12°
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/index.js">
+    </script>
+</body>
+
+</html>
