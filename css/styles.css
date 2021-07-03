@@ -91,3 +91,9 @@ p {
 .unit {
   float: right;
 }
+
+.footer{
+  text-align: center;
+  font-size: 10px;
+  padding-top: 0;
+}
