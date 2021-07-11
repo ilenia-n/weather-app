@@ -1,4 +1,3 @@
-//In your project, display the current date and time using JavaScript: Tuesday 16:00
 let currentTime = new Date();
 
 let weekday = currentTime.toLocaleString("default", { weekday: "long" });
@@ -17,8 +16,7 @@ if (minutes < 10) {
 let showTime = document.querySelector("#date");
 showTime.innerHTML = `${weekday} ${hour}:${minutes}`;
 
-//Add a search engine, when searching for a city (i.e. Paris),
-//display the city name on the page after the user submits the form.
+
 function onFormSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#cityInput");
@@ -99,3 +97,5 @@ function convertC(event) {
 
 let cButton = document.querySelector("#cUnit");
 cButton.addEventListener("click", convertC);
+
+requestDataFromAPI("Edinburgh");
