@@ -53,7 +53,9 @@ currentLocation.addEventListener("click", onCurrentLocationClick);
 function updateWeatherData(response) {
   let cityTitle = document.querySelector("#cityTitle");
   cityTitle.innerHTML = `${response.data.name}`;
-  let currentTemperature = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+
+  let currentTemperature = Math.round(celsiusTemp);
   let changeTemp = document.querySelector("#temp");
   changeTemp.innerHTML = `${currentTemperature}°`;
   let currentHumidity = response.data.main.humidity;
@@ -68,25 +70,31 @@ function updateWeatherData(response) {
   let currentWeatherDescription = response.data.weather[0].description;
   let changeWeatherDescription = document.querySelector("#weatherDescription");
   changeWeatherDescription.innerHTML = `${currentWeatherDescription}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `images/${response.data.weather[0].icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-//Display a fake temperature (i.e 17) in Celsius and add a link to convert
-//it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit.
-//When clicking on Celsius, it should convert it back to Celsius.
 
 function convertF(event) {
-  let fahrenheit = 11 * 1.8 + 32;
+  let fahrenheit = celsiusTemp * 1.8 + 32;
   let fTemp = Math.round(fahrenheit);
   let unit = document.querySelector("#temp");
   unit.innerHTML = `${fTemp}°`;
 }
 
+let celsiusTemp = null;
+
 let fButton = document.querySelector("#fUnit");
 fButton.addEventListener("click", convertF);
 
 function convertC(event) {
+  let cTemp = Math.round(celsiusTemp);
   let unit = document.querySelector("#temp");
-  unit.innerHTML = `11°`;
+  unit.innerHTML = `${cTemp}°`;
 }
 
 let cButton = document.querySelector("#cUnit");

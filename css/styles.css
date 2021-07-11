@@ -54,6 +54,10 @@ p {
   font-size: 18px;
 }
 
+li:first-letter {
+  text-transform: capitalize;
+}
+
 .box {
   margin: 80px auto;
   padding: 40px;
