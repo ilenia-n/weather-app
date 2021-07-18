@@ -56,6 +56,8 @@ function updateWeatherData(response) {
   let currentTemperature = Math.round(celsiusTemp);
   let changeTemp = document.querySelector("#temp");
   changeTemp.innerHTML = `${currentTemperature}°`;
+  let changeUnit = document.querySelector("#unit");
+  changeUnit.innerHTML =`C`;
   let currentHumidity = response.data.main.humidity;
   let changeHumidity = document.querySelector("#humidity");
   changeHumidity.innerHTML = `${currentHumidity}`;
@@ -76,26 +78,5 @@ function updateWeatherData(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-
-function convertF(event) {
-  let fahrenheit = celsiusTemp * 1.8 + 32;
-  let fTemp = Math.round(fahrenheit);
-  let unit = document.querySelector("#temp");
-  unit.innerHTML = `${fTemp}°`;
-}
-
-let celsiusTemp = null;
-
-let fButton = document.querySelector("#fUnit");
-fButton.addEventListener("click", convertF);
-
-function convertC(event) {
-  let cTemp = Math.round(celsiusTemp);
-  let unit = document.querySelector("#temp");
-  unit.innerHTML = `${cTemp}°`;
-}
-
-let cButton = document.querySelector("#cUnit");
-cButton.addEventListener("click", convertC);
 
 requestDataFromAPI("Edinburgh");

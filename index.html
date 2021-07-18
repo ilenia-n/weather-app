@@ -20,7 +20,7 @@
             <div class="col-5">
                 <form id="cityForm">
                     <div class="input-group mb-3">
-                        <input type="text"  id ="cityInput" class="form-control" placeholder="Enter a city...">
+                        <input type="text"  id ="cityInput" class="form-control" plaßßceholder="Enter a city...">
                         <button type="submit" value="Search">
                             Search
                         </button>
@@ -31,18 +31,10 @@
                 <button id="currentLocation"> Current Location
                 </button>
             </div>
-            <div class="col-2">
-                <button id="cUnit" class="unit"> °C
-                </button>
-            </div>
-            <div class="col-1">
-                <button id="fUnit" class="unit"> °F
-                </button>
-            </div>
         </div>
         <div class="row">
             <div class="col-6">
-                <h2 id="cityTitle">Edinburgh</h2>
+                <h2 id="cityTitle"></h2>
                 <ul class="top-details">
                     <li>Last updated: <span id="date"> </span></li>
                     <li id="weatherDescription"></li>
@@ -50,7 +42,7 @@
                 <img src="images/01d.png" alt="Cloudy" id="icon">
             </div>
             <div class="col-6">
-                <h1 id="temp">11°</h1>
+                <h1><span id="temp"></span> <span id="unit"></span></h1>
                 <ul class="weather-details">
                     <li>Feels like: <span id="feelsLike">19</span>°</li>
                     <li>Humidity: <span id="humidity">73</span></li>

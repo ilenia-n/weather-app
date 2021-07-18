@@ -76,7 +76,7 @@ li:first-letter {
 .weather-details{
     list-style-type: none;
     padding-left: 60px;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .week-image {
@@ -93,11 +93,15 @@ li:first-letter {
 }
 
 .unit {
-  float: right;
+  font-size: 30px;
 }
 
 .footer{
   text-align: center;
   font-size: 10px;
   padding-top: 0;
+}
+
+#unit{
+  font-size: 30px;
 }
