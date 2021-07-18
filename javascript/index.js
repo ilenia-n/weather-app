@@ -36,17 +36,55 @@ function requestDataFromAPI(requestObject) {
 let citySearch = document.querySelector("#cityForm");
 citySearch.addEventListener("submit", onFormSubmit);
 
-function processCurrentLocation(geoLocation)
-{
-  requestDataFromAPI(geoLocation.coords);
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
 
-function onCurrentLocationClick() {
-  navigator.geolocation.getCurrentPosition(processCurrentLocation);
+function displayFiveDaysForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#fiveDaysForecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0 && index <6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col">
+      <div class="card">
+        <div class="days-forecast">${formatDay(forecastDay.dt)}</div>
+        <img class="week-image"
+          src="images/${forecastDay.weather[0].icon}.png"
+          alt=""
+          width="42"
+        />
+          <span class="days-forecast"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <div class="min"> ${Math.round(
+            forecastDay.temp.min
+          )}° 
+          </div>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
-let currentLocation = document.querySelector("#currentLocation");
-currentLocation.addEventListener("click", onCurrentLocationClick);
+function getForecastOneCall(coordinates) {
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayFiveDaysForecast);
+}
 
 function updateWeatherData(response) {
   let cityTitle = document.querySelector("#cityTitle");
@@ -55,9 +93,9 @@ function updateWeatherData(response) {
 
   let currentTemperature = Math.round(celsiusTemp);
   let changeTemp = document.querySelector("#temp");
-  changeTemp.innerHTML = `${currentTemperature}°`;
+  changeTemp.innerHTML = `${currentTemperature}`;
   let changeUnit = document.querySelector("#unit");
-  changeUnit.innerHTML =`C`;
+  changeUnit.innerHTML =`°C`;
   let currentHumidity = response.data.main.humidity;
   let changeHumidity = document.querySelector("#humidity");
   changeHumidity.innerHTML = `${currentHumidity}`;
@@ -76,6 +114,8 @@ function updateWeatherData(response) {
     `images/${response.data.weather[0].icon}.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecastOneCall(response.data.coord);
 }
 
 

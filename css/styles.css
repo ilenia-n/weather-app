@@ -12,10 +12,11 @@ h1 {
   font-size: 80px;
   text-align: center;
   padding: 30px 0 15px 0;
+  margin-left: 10px;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 35px;
   padding-top: 30px;
 }
 
@@ -46,16 +47,16 @@ img {
   width: 55%;
 }
 
-p {
+li:first-letter {
+  text-transform: capitalize;
+}
+
+.days-forecast{
   text-align: center;
   font-weight: bolder;
   padding: 10px 10px 3px;
   margin-bottom: 0;
   font-size: 18px;
-}
-
-li:first-letter {
-  text-transform: capitalize;
 }
 
 .box {
@@ -64,7 +65,7 @@ li:first-letter {
   background-color: white;
   border-radius: 10px;
   box-shadow: 5px 5px 20px rgb(0 0 0 / 10%);
-  max-width: 720px;
+  width: 580px;
 }
 
 .top-details {
@@ -75,7 +76,8 @@ li:first-letter {
 
 .weather-details{
     list-style-type: none;
-    padding-left: 60px;
+    padding-top: 30px;
+    padding-left: 50px;
     font-size: 16px;
 }
 
@@ -85,15 +87,19 @@ li:first-letter {
   width: 75%;
 }
 
-.min {
+.max {
   text-align: center;
-  padding: 0 10px;
-  font-size: 13px;
-  font-weight: normal;
+  font-weight: bolder;
+  padding: 10px 10px 3px;
+  margin-bottom: 0;
+  font-size: 18px;
 }
 
-.unit {
-  font-size: 30px;
+.min {
+  text-align: center;
+  padding-bottom: 5px;
+  font-size: 13px;
+  font-weight: normal;
 }
 
 .footer{
@@ -104,4 +110,7 @@ li:first-letter {
 
 #unit{
   font-size: 30px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 10px;
 }
