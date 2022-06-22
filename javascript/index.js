@@ -25,7 +25,7 @@ function onFormSubmit(event) {
 
 function requestDataFromAPI(requestObject) {
   let baseUrl = "https://api.openweathermap.org/data/2.5/weather";
-  let apiKey = "dc51080b02acff683dbe8e4cbf69dccc";
+  let apiKey = key;
   let apiUrl = `${baseUrl}?q=${requestObject}&appid=${apiKey}&units=metric`;
   if (typeof(requestObject) == "object") {
     apiUrl = `${baseUrl}?lat=${requestObject.latitude}&lon=${requestObject.longitude}&appid=${apiKey}&units=metric`;
@@ -81,7 +81,7 @@ function displayFiveDaysForecast(response) {
 }
 
 function getForecastOneCall(coordinates) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = key;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayFiveDaysForecast);
 }
