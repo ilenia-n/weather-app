@@ -64,7 +64,7 @@ li:first-letter {
   padding: 40px;
   background-color: white;
   border-radius: 4px;
-  box-shadow: 0px 0px 20px rgb(0 0 0 / 24%);
+  box-shadow: 3px 3px 20px rgb(0 0 0 / 30%);
   width: 580px;
 }
 
